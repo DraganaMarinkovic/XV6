@@ -1,7 +1,6 @@
-# OS 2024 – Homework 2  
-## Symbolic Links & Disk Usage in xv6  
+ # Symbolic Links & Disk Usage in xv6  
 
-### Overview  
+## Overview  
 This project extends the **xv6 operating system** to support **symbolic links** and **disk usage accounting**. The implementation integrates with existing xv6 functionality without breaking compatibility.  
 
 ### Features  
