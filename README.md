@@ -1,0 +1,40 @@
+# OS 2024 – Homework 2  
+## Symbolic Links & Disk Usage in xv6  
+
+### Overview  
+This project extends the **xv6 operating system** to support **symbolic links** and **disk usage accounting**. The implementation integrates with existing xv6 functionality without breaking compatibility.  
+
+### Features  
+- **New file type**: `T_SYMLINK` added to represent symbolic links.  
+- **New syscall**:  
+  - `int symlink(char *target, char *path);`  
+    - Creates a symbolic link at `path` pointing to `target`.  
+- **Updated syscalls**:  
+  - `open()` extended with `O_NOFOLLOW` flag to prevent following symlinks.  
+  - Recursive resolution of symlinks with cycle detection (depth limit = 10).  
+- **Filesystem changes**:  
+  - Symbolic links cannot be opened for writing.  
+  - `link` and `unlink` operate on symlinks themselves, not their targets.  
+  - Added `blocks` field in `stat` struct: number of physical blocks used by a file (excluding metadata).  
+- **User programs**:  
+  - `sln [target] [linkname]` – create a symbolic link (`ln -s`).  
+  - `symlinkinfo [path]` – list symlinks in a directory with their targets.  
+  - `du [path…]` – show total disk usage and per-file usage (recursively for directories).  
+- **ls update**: displays the new `blocks` field.  
+
+### Restrictions  
+- Symbolic links to directories do not need to be supported.  
+- Writing to symlinks is not allowed.  
+
+### Grading Breakdown  
+- Symbolic link + `du` support: **9 pts**  
+- Syscall `symlink`: **5 pts**  
+- User programs:  
+  - `sln`: **1 pt**  
+  - `symlinkinfo`: **3 pts**  
+  - `du`: **2 pts**  
+
+
+This was an exercise for my Operating Systems class. It was only one of a number of similar tasks.
+
+Other exercises included implementing shared memory, terminal command history, and various other syscalls.
