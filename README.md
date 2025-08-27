@@ -26,14 +26,6 @@ This project extends the **xv6 operating system** to support **symbolic links** 
 - Symbolic links to directories do not need to be supported.  
 - Writing to symlinks is not allowed.  
 
-### Grading Breakdown  
-- Symbolic link + `du` support: **9 pts**  
-- Syscall `symlink`: **5 pts**  
-- User programs:  
-  - `sln`: **1 pt**  
-  - `symlinkinfo`: **3 pts**  
-  - `du`: **2 pts**  
-
 
 This was an exercise for my Operating Systems class. It was only one of a number of similar tasks.
 
